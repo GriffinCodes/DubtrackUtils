@@ -6,7 +6,7 @@ Hook Dubtrack into your minecraft server!
 ## Features
 - Song update announcements
 - Send dubtrack chat to minecraft
-- *Fully* customizable- every message and every feature.
+- [*Fully* customizable](https://github.com/PugaBear/DubtrackUtils/blob/master/src/main/resources/config.yml)- every message and every feature.
 
 ### Planned features
 - IRC/Discord hooks
