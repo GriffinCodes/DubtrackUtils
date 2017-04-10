@@ -73,7 +73,7 @@ lang:
   # Permission error message for /dubtrack <reload|reconnect|reset> (requires 'dubtrackutils.admin')
   noperm: '&cYou do not have permission to use this command!'
   
-  # Reload success message
+  # Reload success messages
   admin:
     prefix: '&8&l[&eDubtrackUtils&8&l] &3'
     reload: 'Successfully reloaded configuration'
@@ -120,7 +120,6 @@ hooks:
     # To get the server and channel ID's, first
     # go to User settings -> Appearance -> Advanced
     # and turn on Developer Mode. 
-
 
     # Send chat?
     chat: 
