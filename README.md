@@ -10,6 +10,7 @@ Hook Dubtrack into your minecraft server!
 
 ### Planned features
 - IRC/Discord hooks
+- Abulity to turn off dubtrack announcements/chat per person.
 - Ability to grab other misc. information about the dubtrack room
 - (maybe) Ability to ban/kick dubtrack users from ingame
 
