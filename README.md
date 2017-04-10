@@ -39,7 +39,7 @@ rm src/test/ -R
 mvn clean package
 cd ..
 git clone https://github.com/PugaBear/DubtrackUtils.git
-cd DubtrackUtil
+cd DubtrackUtils
 mkdir -p libs/repo/dubtrack/dubtrack4j/1.06-SNAPSHOT
 cp ../Dubtrack4J/target/dubtrack4j-1.06-SNAPSHOT.jar libs/repo/dubtrack/dubtrack4j/1.06-SNAPSHOT/
 mvn clean package
