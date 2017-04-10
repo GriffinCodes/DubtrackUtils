@@ -1,0 +1,147 @@
+#   ____        _     _                  _    _   _ _   _ _
+#  |  _ \ _   _| |__ | |_ _ __ __ _  ___| | _| | | | |_(_) |___
+#  | | | | | | | '_ \| __| '__/ _` |/ __| |/ / | | | __| | / __|
+#  | |_| | |_| | |_) | |_| | | (_| | (__|   <| |_| | |_| | \__ \
+#  |____/ \__,_|_.__/ \__|_|  \__,_|\___|_|\_\\___/ \__|_|_|___/
+# 
+#
+# By Pugabear
+#
+# https://github.com/PugaBear/DubtrackUtils
+
+settings:
+  
+  # Make an account and put the details here
+  username: 'username'
+  password: 'password'
+  
+  # The name of your room; https://dubtrack.fm/join/<ROOM NAME>
+  room: 'room'
+
+  # Enable announcements?
+  announcements: true
+
+  # Enable chat hook?
+  chat: true
+
+lang:
+  # A lot of these settings use each other to get the text 
+  # displayed. For example, at the end of 'announcement' 
+  # is '%display%'. That pulls directly form the 'display' 
+  # setting. All %placeholders% are optional, however 
+  # removing them may cause a loss of functionality 
+  # (such as the song not being displayed). If you'd 
+  # like any other placeholders, feel free to create 
+  # an issue over at the github repository:
+  # https://github.com/PugaBear/DubtrackUtils/issues
+  # Please understand that I am limited by the Dubtrack
+  # Java API which is very very underdeveloped. I may
+  # try to update it in the future.
+
+  # Full color support. Color codes: http://ess.khhq.net/mc/
+
+  # Chat format
+  chat: '&8&l[&5Dubtrack&8&l] &f%user% &5&l> &f%message%'
+
+  # Used in /dubtrack and announcements
+  display: '&e%song% &3(Queued by &e%dj%&3)'
+
+  # Announcement 
+  # Use %new% to move to a new line
+  # Other valid placeholders: url, song, dj
+  announcement: ' &3Now playing on &dDubtrack&3:%new% %display%'
+
+  # Hover text on announcements
+  tooltip: '&eClick here &3to join our &dDubtrack &3room!'
+  
+  # Following 3 are used in /dubtrack command. 
+  # Set to '' if you don't want to display it
+  # Use %new% to move to a new line
+  # By default it displays as:
+  # =====================
+  # 
+  # %info%
+  # 
+  # %join%
+  #
+  # %currentlyplaying%
+  # =====================
+  info: '&f%new%&bDubtrack &3is a music sharing platform. It allows you to listen to songs at the same time as your friends.'
+  join: '&f%new%&3Join us on dubtrack at &d%url%'
+  currentlyplaying: '&f%new%&3Currently playing: %display%'
+  
+  # Permission error message for /dubtrack <reload|reconnect|reset> (requires 'dubtrackutils.admin')
+  noperm: '&cYou do not have permission to use this command!'
+  
+  # Reload success message
+  admin:
+    prefix: '&8&l[&eDubtrackUtils&8&l] &3'
+    reload: 'Successfully reloaded configuration'
+    reconnect: 'Successfully reconnected to Dubtrack'
+    reset: 'Successfully reloaded and reconnected'
+
+
+hooks:
+  # Send the information recieved from Dubtrack to other
+  # chat platforms. Current supported platforms are:
+  #
+  # IRC (via PurpleIRC)
+  # https://www.spigotmc.org/resources/purpleirc.2836/
+  #
+  # Discord (No plugin required)
+  # https://discordapp.com
+  # 
+  # Have another request? Open an issue at 
+  # https://github.com/PugaBear/DubtrackUtils
+  # and I will happily look into it
+
+  irc:
+    # Send chat?
+    chat:
+      enabled: true
+      
+      # Name of bot file without the .yml
+      bot: 'bot'
+      
+      # Name of channel without the #
+      channel: 'channel'
+    
+    # Send announcements?
+    announcements:
+      enabled: true
+      
+      # Name of bot file without the .yml
+      bot: 'bot'
+      
+      # Name of channel without the #
+      channel: 'channel'
+
+  discord:      
+    # To get the server and channel ID's, first
+    # go to User settings -> Appearance -> Advanced
+    # and turn on Developer Mode. 
+
+
+    # Send chat?
+    chat: 
+      enabled: true
+
+      # Right click on the server icon (far 
+      # left hand side) and click Copy ID.
+      server: '000000000000000000'
+      
+      # Right click on the text channel 
+      # and click Copy ID
+      channel: '000000000000000000'
+    
+    # Send announcements?
+    announcements:
+      enabled: true
+
+      # Right click on the server icon (far 
+      # left hand side) and click Copy ID.
+      server: '000000000000000000'
+
+      # Right click on the text channel 
+      # and click Copy ID
+      channel: '000000000000000000'
