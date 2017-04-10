@@ -17,7 +17,7 @@ Hook Dubtrack into your minecraft server!
 - `/dubtrack` - View information about dubtrack, a link, and what is currently playing. 
 - `/dubtrack reload` - Reload the configuration file 
 - `/dubtrack reconnect` - Reconnect to dubtrack
-- `/dubtract reset` - Reload the configuration file and reconnect to dubtrack
+- `/dubtrack reset` - Reload the configuration file and reconnect to dubtrack
 
 ## Permissions
 `dubtrack.admin` - Reload/reconnect/reset the plugin
