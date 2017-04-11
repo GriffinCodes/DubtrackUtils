@@ -6,6 +6,8 @@ Hook Dubtrack into your minecraft server!
 ## Features
 - Song update announcements
 - Send dubtrack chat to minecraft
+- Ability to kick/ban users from ingame
+- Ability to skip the current song from ingame
 - [*Fully* customizable](https://github.com/PugaBear/DubtrackUtils/blob/master/src/main/resources/config.yml)- every message and every feature.
 
 ### Planned features
@@ -13,16 +15,23 @@ Hook Dubtrack into your minecraft server!
 - Send minecraft chat back to dubtrack
 - Ability to turn off dubtrack announcements/chat per person.
 - Ability to grab other misc. information about the dubtrack room
-- (maybe) Ability to ban/kick dubtrack users from ingame
 
 ## Commands
+### Basic
+- **Permission: dubtrack.use**
 - `/dubtrack` - View information about dubtrack, a link, and what is currently playing. 
+- `/dubtrack hide [chat]` - Hide announcements or chat (by adding 'chat') 
+### Mod
+- **Permission: dubtrack.mod**
+- `/dubtrack kick <user>` - Kick a user from the dubtrack room
+- `/dubtrack ban <user>` - Ban a user from the dubtrack room
+- `/dubtrack unban <user>` - Unban a user from the dubtrack room
+- `/dubtrack skip` - Skip the current song
+### Admin
+- **Permission: dubtrack.admin**
 - `/dubtrack reload` - Reload the configuration file 
-- `/dubtrack reconnect` - Reconnect to dubtrack
-- `/dubtrack reset` - Reload the configuration file and reconnect to dubtrack
-
-## Permissions
-`dubtrack.admin` - Reload/reconnect/reset the plugin
+- `/dubtrack reconnect` - Reconnect to dubtrack 
+- `/dubtrack reset` - Reload the configuration file and reconnect to dubtrack 
 
 ## Download
 [DubtrackUtils.jar](http://dl.bn-mc.net/?q=dubtrackutils)
@@ -34,7 +43,7 @@ Hook Dubtrack into your minecraft server!
 - `/dubtrack reset`
 
 ## Building
-You will first need to download & build the [Dubtrack4J](https://github.com/zombachu/Dubtrack4J) library and place the jar inside `libs/repo/dubtrack/dubtrack4j/1.06-SNAPSHOT/`
+You will first need to download & build the [Dubtrack4J](https://github.com/zombachu/Dubtrack4J) library and place the jar inside `libs/repo/io/sponges/dubtrack4j/1.06-SNAPSHOT/`
 ```
 git clone https://github.com/zombachu/Dubtrack4J.git
 cd Dubtrack4J
@@ -43,8 +52,8 @@ mvn clean package
 cd ..
 git clone https://github.com/PugaBear/DubtrackUtils.git
 cd DubtrackUtils
-mkdir -p libs/repo/dubtrack/dubtrack4j/1.06-SNAPSHOT
-cp ../Dubtrack4J/target/dubtrack4j-1.06-SNAPSHOT.jar libs/repo/dubtrack/dubtrack4j/1.06-SNAPSHOT/
+mkdir -p libs/repo/io/sponges/dubtrack4j/1.06-SNAPSHOT
+cp ../Dubtrack4J/target/dubtrack4j-1.06-SNAPSHOT.jar libs/repo/io/sponges/dubtrack4j/1.06-SNAPSHOT/
 mvn clean package
 ```
 The jar will be inside the `target` folder.

@@ -19,6 +19,7 @@ import io.sponges.dubtrack4j.framework.Room;
 
 public class DubtrackUtils extends JavaPlugin {
 	public final static String NAME = "DubtrackUtils";
+	public final String DUB_URL = "https://dubtrack.fm/join/";
 	public static DubtrackUtils instance;
 	public static Logger log;
 	protected FileConfiguration config; 
@@ -60,7 +61,7 @@ public class DubtrackUtils extends JavaPlugin {
 	}
 
 	private void setEvents() {
-		clickEvent = new ClickEvent(ClickEvent.Action.OPEN_URL, "https://dubtrack.fm/join/" + config.getString("settings.room"));
+		clickEvent = new ClickEvent(ClickEvent.Action.OPEN_URL, DUB_URL + config.getString("settings.room"));
 		hoverEvent = new HoverEvent(HoverEvent.Action.SHOW_TEXT, TextComponent.fromLegacyText(config.getString("lang.tooltip").replaceAll("&", "§")));
 	}
 
@@ -73,7 +74,7 @@ public class DubtrackUtils extends JavaPlugin {
 				log.info("Enabling in-game announcements");
 				dubtrack.getEventBus().register(SongChangeEvent.class, event -> {
 					if (config.getBoolean("settings.announcements")) {
-						String url = "https://dubtrack.fm/join/" + config.getString("settings.room");
+						String url = DUB_URL + config.getString("settings.room");
 						String display = config.getString("lang.display")
 								.replaceAll("&", "§")
 								.replaceAll("%song%", event.getNewSong().getSongInfo().getName())
@@ -105,6 +106,7 @@ public class DubtrackUtils extends JavaPlugin {
 				config.getBoolean("hooks.discord.chat.enabled")) {
 			
 			if (config.getBoolean("settings.chat")) {
+				log.info("Enabling dubtrack->game chat relaying.");
 				dubtrack.getEventBus().register(UserChatEvent.class, event -> {
 					if (config.getBoolean("settings.chat")) {
 						String format = config.getString("lang.chat")

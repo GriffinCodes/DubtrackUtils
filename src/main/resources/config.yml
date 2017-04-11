@@ -27,7 +27,7 @@ settings:
 lang:
   # A lot of these settings use each other to get the text 
   # displayed. For example, at the end of 'announcement' 
-  # is '%display%'. That pulls directly form the 'display' 
+  # is '%display%'. That pulls directly from the 'display' 
   # setting. All %placeholders% are optional, however 
   # removing them may cause a loss of functionality 
   # (such as the song not being displayed). If you'd 
@@ -38,7 +38,7 @@ lang:
   # Java API which is very very underdeveloped. I may
   # try to update it in the future.
 
-  # Full color support. Color codes: http://ess.khhq.net/mc/
+  # Full color support. http://ess.khhq.net/mc/
 
   # Chat format
   chat: '&8&l[&5Dubtrack&8&l] &f%user% &5&l> &f%message%'
