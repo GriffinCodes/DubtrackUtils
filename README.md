@@ -43,9 +43,9 @@ Hook Dubtrack into your minecraft server!
 - `/dubtrack reset`
 
 ## Building
-You will first need to download & build the [Dubtrack4J](https://github.com/zombachu/Dubtrack4J) library and place the jar inside `libs/repo/io/sponges/dubtrack4j/1.06-SNAPSHOT/`
+You will first need to download & build the [Dubtrack4J](https://github.com/PugaBear/Dubtrack4J) library and place the jar inside `libs/repo/io/sponges/dubtrack4j/1.06-SNAPSHOT/`
 ```
-git clone https://github.com/zombachu/Dubtrack4J.git
+git clone https://github.com/PugaBear/Dubtrack4J.git
 cd Dubtrack4J
 rm src/test/ -R
 mvn clean package
