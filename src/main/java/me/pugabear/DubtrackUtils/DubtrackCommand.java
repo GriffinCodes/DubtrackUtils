@@ -9,14 +9,14 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.configuration.file.FileConfiguration;
 
 public class DubtrackCommand implements CommandExecutor {
-	private DubtrackUtils dta = DubtrackUtils.getInstance();
+	private DubtrackUtils dtu = DubtrackUtils.getInstance();
 	private FileConfiguration config = DubtrackUtils.getInstance().getConfig();
 	private String prefix = config.getString("lang.prefix").replaceAll("&", "§");
 
 	@Override
 	public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
-		HashMap<String, String> cmds = dta.getCmds();
-		String first = args.length != 0 ? args[0] : "default";
+		HashMap<String, String> cmds = dtu.getCmds();
+		String first = args.length != 0 ? args[0].toLowerCase() : "default";
 		String level;
 		try {
 			level = cmds.get(first);
@@ -36,17 +36,17 @@ public class DubtrackCommand implements CommandExecutor {
 					Utils.loadConfig();
 					break;
 				case "reconnect":
-					dta.getAPI().logout();
+					dtu.getAPI().logout();
 					Utils.getRoomId();
-					dta.init();
-					dta.register();
+					dtu.init();
+					dtu.register();
 					break;
 				case "reset":
-					dta.getAPI().logout();
+					dtu.getAPI().logout();
 					Utils.loadConfig();
 					Utils.getRoomId();
-					dta.init();
-					dta.register();
+					dtu.init();
+					dtu.register();
 					break;
 				default:
 					sender.sendMessage(prefix + Utils.color("lang.admin.usage"));
@@ -55,25 +55,37 @@ public class DubtrackCommand implements CommandExecutor {
 				sender.sendMessage(prefix + Utils.color("lang.admin." + args[0]));
 				return true;
 			case "mod":
-				switch (first) {
-				case "ban":
-					dta.getRoom().banUser(dta.getRoom().getUserByUsername(args[1]));
-					break;
-				case "unban":
-					dta.getRoom().unbanUser(dta.getRoom().getUserByUsername(args[1]).getId());
-					break;
-				case "kick":
-					dta.getRoom().kickUser(dta.getRoom().getUserByUsername(args[1]));
-					break;
-				case "skip":
-					dta.getRoom().skipSong();
-					sender.sendMessage(prefix + Utils.color("lang.mod.skip"));
-					return true;
-				default:
-					sender.sendMessage(prefix + Utils.color("lang.mod.usage"));
-					return true;
+				try {
+					switch (first) {
+					case "kick":
+						dtu.getRoom().kickUser(dtu.getRoom().getUserByUsername(args[1]));
+						break;
+					case "ban":
+						dtu.getRoom().banUser(dtu.getRoom().getUserByUsername(args[1]));
+						break;
+					case "unban":
+						sender.sendMessage(prefix + "Currently not working, sorry!");
+//				        Bukkit.getScheduler().runTaskAsynchronously(DubtrackUtils.getInstance(), new Runnable() {
+//				            @Override
+//				            public void run() {
+//				            	String id = Utils.getUserId(args[1]);
+//				            	log.info(id);
+//				            	dta.getRoom().unbanUser(id);;
+//				            }
+//				        });
+//						break;
+					case "skip":
+						dtu.getRoom().skipSong();
+						sender.sendMessage(prefix + Utils.color("lang.mod.skip"));
+						return true;
+					default:
+						sender.sendMessage(prefix + Utils.color("lang.mod.usage"));
+						return true;
+					}
+					sender.sendMessage(prefix + Utils.color("lang.mod." + first).replaceAll("%user%", args[1]));
+				} catch (NullPointerException ex) {
+					sender.sendMessage(prefix + Utils.color("lang.mod.invaliduser").replaceAll("%user%", args[1]));
 				}
-				sender.sendMessage(prefix + Utils.color("lang.mod." + first).replaceAll("%user%", args[1]));
 				return true;
 			case "use":
 				switch (first) {
@@ -89,8 +101,8 @@ public class DubtrackCommand implements CommandExecutor {
 							.replaceAll("&", "§")
 							.replaceAll("%url%", url);
 
-					String song = dta.getRoom().getCurrentSong().getSongInfo().getName();
-					String dj = dta.getRoom().getCurrentSong().getUser().getUsername();
+					String song = dtu.getRoom().getCurrentSong().getSongInfo().getName();
+					String dj = dtu.getRoom().getCurrentSong().getUser().getUsername();
 					
 					String display = config.getString("lang.display")
 							.replaceAll("&", "§")
@@ -129,9 +141,7 @@ public class DubtrackCommand implements CommandExecutor {
 			e.printStackTrace();
 		} catch (ArrayIndexOutOfBoundsException ex) {
 			sender.sendMessage(prefix + Utils.color("lang.mod.usage"));
-		} // catch (InvalidUserException ex) {
-//			sender.sendMessage(prefix + Utils.color("lang.mod.invaliduser").replaceAll("%user%", args[1]));
-//		}
+		} 
 		return true;
 	}
 }
