@@ -73,12 +73,24 @@ lang:
   # Permission error message for /dubtrack <reload|reconnect|reset> (requires 'dubtrackutils.admin')
   noperm: '&cYou do not have permission to use this command!'
   
-  # Reload success messages
+  # Prefix used in Mod/Admin commands
+  prefix: '&8&l[&eDubtrackUtils&8&l] &3'
+
+  # Mod commands
+  mod:
+    ban: 'Banned user %user%'
+    unban: 'Unbanned user %user%'
+    kick: 'Kicked user %user%'
+    invaliduser: 'Could not find user %user%'
+    skip: 'Skipped current song'
+    usage: '&c/dubtrack <ban <user>|unban <user>|kick <user>|skip>'
+
+  # Admin commands
   admin:
-    prefix: '&8&l[&eDubtrackUtils&8&l] &3'
     reload: 'Successfully reloaded configuration'
     reconnect: 'Successfully reconnected to Dubtrack'
     reset: 'Successfully reloaded and reconnected'
+    usage: '&c/dubtrack <reload|reconnect|reset>'
 
 
 hooks:
