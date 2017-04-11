@@ -65,6 +65,7 @@ public class DubtrackCommand implements CommandExecutor {
 						break;
 					case "unban":
 						sender.sendMessage(prefix + "Currently not working, sorry!");
+						return true;
 //				        Bukkit.getScheduler().runTaskAsynchronously(DubtrackUtils.getInstance(), new Runnable() {
 //				            @Override
 //				            public void run() {

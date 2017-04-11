@@ -59,24 +59,24 @@ public class Utils {
 		}
 	}
 
-	protected static String getUserId(String user) {
-		try {
-			URL roomAPI = new URL("https://api.dubtrack.fm/user/" + user);
-			HttpURLConnection connection = (HttpURLConnection) roomAPI.openConnection();
-			connection.setRequestProperty("User-Agent", "Mozilla/5.0 (Windows; U; Windows NT 6.1; en-GB;     rv:1.9.2.13) Gecko/20101203 Firefox/3.6.13 (.NET CLR 3.5.30729)");
-			BufferedReader rd = new BufferedReader(new InputStreamReader(connection.getInputStream()));
-			String response = rd.readLine();
-			connection.disconnect();
-
-			JsonParser jsonParser = new JsonParser();
-			JsonObject resultCount = jsonParser
-					.parse(response).getAsJsonObject()
-					.get("data").getAsJsonObject();
-
-			return resultCount.get("_id").getAsString();
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		return null;
-	}
+//	protected static String getUserId(String user) {
+//		try {
+//			URL roomAPI = new URL("https://api.dubtrack.fm/user/" + user);
+//			HttpURLConnection connection = (HttpURLConnection) roomAPI.openConnection();
+//			connection.setRequestProperty("User-Agent", "Mozilla/5.0 (Windows; U; Windows NT 6.1; en-GB;     rv:1.9.2.13) Gecko/20101203 Firefox/3.6.13 (.NET CLR 3.5.30729)");
+//			BufferedReader rd = new BufferedReader(new InputStreamReader(connection.getInputStream()));
+//			String response = rd.readLine();
+//			connection.disconnect();
+//
+//			JsonParser jsonParser = new JsonParser();
+//			JsonObject resultCount = jsonParser
+//					.parse(response).getAsJsonObject()
+//					.get("data").getAsJsonObject();
+//
+//			return resultCount.get("_id").getAsString();
+//		} catch (Exception e) {
+//			e.printStackTrace();
+//		}
+//		return null;
+//	}
 }
