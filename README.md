@@ -25,7 +25,7 @@ Hook Dubtrack into your minecraft server!
 **Permission: dubtrack.mod**
 - `/dubtrack kick <user>` - Kick a user from the dubtrack room
 - `/dubtrack ban <user>` - Ban a user from the dubtrack room
-~~- `/dubtrack unban <user>` - Unban a user from the dubtrack room~~ Will try to fix later
+- ~~ `/dubtrack unban <user>` - Unban a user from the dubtrack room~~ Will try to fix later
 - `/dubtrack skip` - Skip the current song
 ### Admin
 **Permission: dubtrack.admin**
