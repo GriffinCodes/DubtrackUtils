@@ -18,17 +18,17 @@ Hook Dubtrack into your minecraft server!
 
 ## Commands
 ### Basic
-- **Permission: dubtrack.use**
+**Permission: dubtrack.use**
 - `/dubtrack` - View information about dubtrack, a link, and what is currently playing. 
 - `/dubtrack hide [chat]` - Hide announcements or chat (by adding 'chat') 
 ### Mod
-- **Permission: dubtrack.mod**
+**Permission: dubtrack.mod**
 - `/dubtrack kick <user>` - Kick a user from the dubtrack room
 - `/dubtrack ban <user>` - Ban a user from the dubtrack room
 - `/dubtrack unban <user>` - Unban a user from the dubtrack room
 - `/dubtrack skip` - Skip the current song
 ### Admin
-- **Permission: dubtrack.admin**
+**Permission: dubtrack.admin**
 - `/dubtrack reload` - Reload the configuration file 
 - `/dubtrack reconnect` - Reconnect to dubtrack 
 - `/dubtrack reset` - Reload the configuration file and reconnect to dubtrack 
