@@ -8,8 +8,6 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.configuration.file.FileConfiguration;
 
-import io.sponges.dubtrack4j.exception.InvalidUserException;
-
 public class DubtrackCommand implements CommandExecutor {
 	private DubtrackUtils dta = DubtrackUtils.getInstance();
 	private FileConfiguration config = DubtrackUtils.getInstance().getConfig();
@@ -59,13 +57,13 @@ public class DubtrackCommand implements CommandExecutor {
 			case "mod":
 				switch (first) {
 				case "ban":
-					dta.getRoom().banUser(args[1]);
+					dta.getRoom().banUser(dta.getRoom().getUserByUsername(args[1]));
 					break;
 				case "unban":
-					dta.getRoom().unbanUser(args[1]);
+					dta.getRoom().unbanUser(dta.getRoom().getUserByUsername(args[1]).getId());
 					break;
 				case "kick":
-					dta.getRoom().kickUser(args[1]);
+					dta.getRoom().kickUser(dta.getRoom().getUserByUsername(args[1]));
 					break;
 				case "skip":
 					dta.getRoom().skipSong();
@@ -131,9 +129,9 @@ public class DubtrackCommand implements CommandExecutor {
 			e.printStackTrace();
 		} catch (ArrayIndexOutOfBoundsException ex) {
 			sender.sendMessage(prefix + Utils.color("lang.mod.usage"));
-		} catch (InvalidUserException ex) {
-			sender.sendMessage(prefix + Utils.color("lang.mod.invaliduser").replaceAll("%user%", args[1]));
-		}
+		} // catch (InvalidUserException ex) {
+//			sender.sendMessage(prefix + Utils.color("lang.mod.invaliduser").replaceAll("%user%", args[1]));
+//		}
 		return true;
 	}
 }
