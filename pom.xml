@@ -64,10 +64,6 @@
       <id>apache</id>
       <url>http://central.maven.org/maven2/</url>
     </repository>
-    <repository>
-      <id>local-repo</id>
-      <url>file://${basedir}/libs/repo</url>
-    </repository>
   </repositories>
   <dependencies>
     <!--Spigot API-->
