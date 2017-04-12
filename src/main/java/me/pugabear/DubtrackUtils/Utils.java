@@ -17,9 +17,10 @@ public class Utils {
 	private final static String SEP = System.getProperty("file.separator");
 	private static File fileFolder = new File("plugins" + SEP + DubtrackUtils.NAME);
 	private static File fileConfig = new File("plugins" + SEP + DubtrackUtils.NAME + SEP + "config.yml");
+	private static String prefix = config.getString("lang.prefix").replaceAll("&", "§");
 	
 	public static String color(String s) {
-		return config.getString(s).replaceAll("&", "§");
+		return config.getString(s).replaceAll("&", "§").replaceAll("%prefix%", prefix);
 	}
 	
 	public static void loadConfig() {

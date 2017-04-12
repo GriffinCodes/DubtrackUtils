@@ -22,7 +22,9 @@ settings:
   announcements: true
 
   # Enable chat hook?
-  chat: true
+  chat: 
+    dub-to-game: true
+    game-to-dub: true
 
 lang:
   # A lot of these settings use each other to get the text 
@@ -41,7 +43,9 @@ lang:
   # Full color support. http://ess.khhq.net/mc/
 
   # Chat format
-  chat: '&8&l[&5Dubtrack&8&l] &f%user% &5&l> &f%message%'
+  chat: 
+    dub-to-game: '&8&l[&5Dubtrack&8&l] &f%user% &5&l> &f%message%'
+    game-to-dub: '[MC] %user%: %message%'
 
   # Used in /dubtrack and announcements
   display: '&e%song% &3(Queued by &e%dj%&3)'
@@ -70,27 +74,37 @@ lang:
   join: '&f%new%&3Join us on dubtrack at &d%url%'
   currentlyplaying: '&f%new%&3Currently playing: %display%'
   
+  # Prefix used in commands
+  prefix: '&8&l[&eDubtrackUtils&8&l]&3'
+
+  # Hide command
+  hide: 
+    announcements: 
+      true: '%prefix% Dubtrack announcements are now hidden'
+      false: '%prefix% Dubtrack announcements are no longer hidden'
+    chat: 
+      true: '%prefix% Dubtrack chat is now hidden'
+      false: '%prefix% Dubtrack chat is no longer hidden'
+
   # Permission error message for /dubtrack <reload|reconnect|reset> (requires 'dubtrackutils.admin')
   noperm: '&cYou do not have permission to use this command!'
   
-  # Prefix used in Mod/Admin commands
-  prefix: '&8&l[&eDubtrackUtils&8&l] &3'
 
   # Mod commands
   mod:
-    ban: 'Banned user %user%'
-    unban: 'Unbanned user %user%'
-    kick: 'Kicked user %user%'
-    invaliduser: 'Could not find user %user%'
-    skip: 'Skipped current song'
-    usage: '&c/dubtrack <ban <user>|unban <user>|kick <user>|skip>'
+    ban: '%prefix% Banned user %user%'
+    unban: '%prefix% Unbanned user %user%'
+    kick: '%prefix% Kicked user %user%'
+    invaliduser: '%prefix% Could not find user %user%'
+    skip: '%prefix% Skipped current song'
+    usage: '%prefix% &c/dubtrack <ban <user>|unban <user>|kick <user>|skip>'
 
   # Admin commands
   admin:
-    reload: 'Successfully reloaded configuration'
-    reconnect: 'Successfully reconnected to Dubtrack'
-    reset: 'Successfully reloaded and reconnected'
-    usage: '&c/dubtrack <reload|reconnect|reset>'
+    reload: '%prefix% Successfully reloaded configuration'
+    reconnect: '%prefix% Successfully reconnected to Dubtrack'
+    reset: '%prefix% Successfully reloaded and reconnected'
+    usage: '%prefix% &c/dubtrack <reload|reconnect|reset>'
 
 
 hooks:

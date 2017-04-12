@@ -5,15 +5,14 @@ Hook Dubtrack into your minecraft server!
 
 ## Features
 - Song update announcements
-- Send dubtrack chat to minecraft
+- Display dubtrack chat in minecraft and vice-versa
+- Hide announcements/chat per person
 - Kick/ban users from ingame
 - Skip the current song from ingame
 - [*Fully* customizable](https://github.com/PugaBear/DubtrackUtils/blob/master/src/main/resources/config.yml)- every message and every feature.
 
 ### Planned features
 - IRC/Discord hooks
-- Send minecraft chat back to dubtrack
-- Turn off dubtrack announcements/chat per person.
 - Grab other misc. information about the dubtrack room
 
 ## Commands
