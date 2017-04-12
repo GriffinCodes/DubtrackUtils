@@ -1,7 +1,7 @@
 # DubtrackUtils
 Hook Dubtrack into your minecraft server!
 
-*Credit to [@sponges](https://github.com/sponges) / [@zombachu](https://github.com/zombachu) for the [Dubtrack4J](https://github.com/zombachu/Dubtrack4J) library*
+*Credit to [@sponges](https://github.com/sponges) / [@zombachu](https://github.com/zombachu) for the [Dubtrack4J](https://github.com/PugaBear/Dubtrack4J) library*
 
 ## Features
 - Song update announcements
