@@ -86,7 +86,7 @@ lang:
       true: '%prefix% Dubtrack chat is now hidden'
       false: '%prefix% Dubtrack chat is no longer hidden'
 
-  # Permission error message for /dubtrack <reload|reconnect|reset> (requires 'dubtrackutils.admin')
+  # Permission error message
   noperm: '&cYou do not have permission to use this command!'
   
 
@@ -97,7 +97,7 @@ lang:
     kick: '%prefix% Kicked user %user%'
     invaliduser: '%prefix% Could not find user %user%'
     skip: '%prefix% Skipped current song'
-    usage: '%prefix% &c/dubtrack <ban <user>|unban <user>|kick <user>|skip>'
+    usage: '%prefix% &c/dubtrack <ban <user>|kick <user>|skip>'
 
   # Admin commands
   admin:
