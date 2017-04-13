@@ -7,10 +7,10 @@ Hook Dubtrack into your minecraft server!
 - Song update announcements
 - Display dubtrack chat in minecraft and vice-versa
 - Hide announcements/chat per person
-- Kick/ban users from ingame
+- Kick/ban dubtrack users from ingame
 - Skip the current song from ingame
 - Send announcements and chat to IRC via [PurpleIRC](https://www.spigotmc.org/resources/purpleirc.2836/)
-- [*Fully* customizable](https://github.com/PugaBear/DubtrackUtils/blob/master/src/main/resources/config.yml)- every message and every feature.
+- [*Fully* customizable](https://github.com/PugaBear/DubtrackUtils/blob/master/src/main/resources/config.yml) - every message and every feature.
 
 ### Planned features
 - Setting roles from ingame
@@ -25,14 +25,14 @@ Hook Dubtrack into your minecraft server!
 ### Mod
 **Permission: dubtrack.mod**
 - `/dubtrack kick <user>` - Kick a user from the dubtrack room
-- `/dubtrack ban <user>` - Ban a user from the dubtrack room
-<!-- - `/dubtrack unban <user>` - Unban a user from the dubtrack room -->
+- `/dubtrack ban <user>` - Ban a user from the dubtrack room <!-- - `/dubtrack unban <user>` - Unban a user from the dubtrack room -->
 - `/dubtrack skip` - Skip the current song
 ### Admin
 **Permission: dubtrack.admin**
 - `/dubtrack reload` - Reload the configuration file 
 - `/dubtrack reconnect` - Reconnect to dubtrack 
 - `/dubtrack reset` - Reload the configuration file and reconnect to dubtrack 
+
 NOTE: The `reconnect` and `reset` commands will pause your server for ~2-5 seconds. It shouldn't cause any problems.
 
 ## Download
