@@ -33,7 +33,7 @@ public class Utils {
 		}
 
 		try {
-			config.load(fileConfig);
+			DubtrackUtils.getInstance().reloadConfig();
 		} catch (Exception e) {
 			DubtrackUtils.log.info("Could not load config file; you may need to regenerate it. Error: " + e.getMessage());
 			e.printStackTrace();

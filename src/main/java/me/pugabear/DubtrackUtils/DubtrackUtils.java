@@ -8,6 +8,7 @@ import org.bukkit.Bukkit;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.java.JavaPlugin;
+import org.unbescape.html.HtmlEscape;
 
 import net.md_5.bungee.api.chat.ClickEvent;
 import net.md_5.bungee.api.chat.HoverEvent;
@@ -93,6 +94,7 @@ public class DubtrackUtils extends JavaPlugin {
 							.replaceAll("%display%", display)
 							.replaceAll("%song%", event.getNewSong().getSongInfo().getName())
 							.replaceAll("%dj%", event.getNewSong().getUser().getUsername());
+					message = HtmlEscape.unescapeHtml(message);
 					
 					if (config.getBoolean("settings.announcements")) {
 						String[] msgSplit = message.split("%new%");

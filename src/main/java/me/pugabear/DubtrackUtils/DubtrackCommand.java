@@ -8,6 +8,7 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.Player;
+import org.unbescape.html.HtmlEscape;
 
 public class DubtrackCommand implements CommandExecutor {
 	private DubtrackUtils dtu = DubtrackUtils.getInstance();
@@ -47,7 +48,7 @@ public class DubtrackCommand implements CommandExecutor {
 					dtu.register();
 					break;
 				case "reset":
-					dtu.getAPI().logout();
+					try { dtu.getAPI().logout(); } catch (NullPointerException e) {}
 					Utils.loadConfig();
 					Utils.getRoomId();
 					dtu.init();
@@ -120,8 +121,8 @@ public class DubtrackCommand implements CommandExecutor {
 					String join = Utils.color("lang.join")
 							.replaceAll("%url%", url);
 
-					String song = dtu.getRoom().getCurrentSong().getSongInfo().getName();
-					String dj = dtu.getRoom().getCurrentSong().getUser().getUsername();
+					String song = HtmlEscape.unescapeHtml(dtu.getRoom().getCurrentSong().getSongInfo().getName());
+					String dj = HtmlEscape.unescapeHtml(dtu.getRoom().getCurrentSong().getUser().getUsername());
 					
 					String display = Utils.color("lang.display")
 							.replaceAll("%song%", song)
