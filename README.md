@@ -13,6 +13,7 @@ Hook Dubtrack into your minecraft server!
 - [*Fully* customizable](https://github.com/PugaBear/DubtrackUtils/blob/master/src/main/resources/config.yml)- every message and every feature.
 
 ### Planned features
+- Setting roles from ingame
 - Discord hook
 - Grab other misc. information about the dubtrack room
 
