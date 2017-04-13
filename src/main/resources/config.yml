@@ -93,7 +93,6 @@ lang:
   # Mod commands
   mod:
     ban: '%prefix% Banned user %user%'
-    unban: '%prefix% Unbanned user %user%'
     kick: '%prefix% Kicked user %user%'
     invaliduser: '%prefix% Could not find user %user%'
     skip: '%prefix% Skipped current song'
