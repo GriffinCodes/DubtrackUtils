@@ -53,7 +53,6 @@ You will first need to clone the [Dubtrack4J](https://github.com/PugaBear/Dubtra
 ```
 git clone https://github.com/PugaBear/Dubtrack4J.git
 cd Dubtrack4J
-rm src/test/ -R
 mvn clean install
 cd ..
 git clone https://github.com/PugaBear/PurpleIRC.git
