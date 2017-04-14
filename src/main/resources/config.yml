@@ -88,15 +88,33 @@ lang:
 
   # Permission error message
   noperm: '&cYou do not have permission to use this command!'
-  
+
+  # User not found error
+  usernotfound: '%prefix% Could not find dubtrack user %user%'
 
   # Mod commands
   mod:
     ban: '%prefix% Banned user %user%'
     kick: '%prefix% Kicked user %user%'
-    invaliduser: '%prefix% Could not find user %user%'
     skip: '%prefix% Skipped current song'
     usage: '%prefix% &c/dubtrack <ban <user>|kick <user>|skip>'
+
+  # Set role commands
+  roles:
+    set:
+      dj: '%prefix% Set &e%user%&3''s role to &eDJ'
+      resident_dj: '%prefix% Set &e%user%&3''s role to &eResident DJ'
+      vip: '%prefix% Set &e%user%&3''s role to &eVIP'
+      mod: '%prefix% Set &e%user%&3''s role to &eMod'
+      manager: '%prefix% Set &e%user%&3''s role to &eManager'
+      co_owner: '%prefix% Set &e%user%&3''s role to &eCo-Owner'
+      cannotset:
+        co_owner: '%prefix% Only the room creator can set the Co-Owner role'
+        creator: '%prefix% The creator role cannot be set'
+      invalidrole: '%prefix% Valid roles are: DJ, Resident_DJ, VIP, Mod, Manager, and Co_Owner'
+      usage: '%prefix% &c/dubtrack roles set <user> <dj|resident_dj|vip|mod|manager|co_owner>'
+    clear: '%prefix% Cleared &e%user%&3''s roles'
+    usage: '%prefix% &c/dubtrack roles <set <user> <role>|clear <user>>'
 
   # Admin commands
   admin:
@@ -113,8 +131,9 @@ hooks:
   # IRC (via PurpleIRC)
   # https://www.spigotmc.org/resources/purpleirc.2836/
   #
-  # Discord (No plugin required)
+  # Discord (Via DiscordSRV)
   # https://discordapp.com
+  # https://www.spigotmc.org/resources/discordsrv.18494/
   # 
   # Have another request? Open an issue at 
   # https://github.com/PugaBear/DubtrackUtils
@@ -169,3 +188,13 @@ hooks:
       # Right click on the text channel 
       # and click Copy ID
       channel: '000000000000000000'
+
+      # How do you want to display what is playing?
+      # Valid values are: 
+      # topic
+      #   Will set the topic of the specified channel to the currently playing song
+      # chat
+      #   Will simply send the announcement updates to the channel's chat
+      # status
+      #   Will use the bot's status message ('Playing <song>')
+      type: 'topic'

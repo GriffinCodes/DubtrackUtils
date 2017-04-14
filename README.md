@@ -19,16 +19,20 @@ Hook Dubtrack into your minecraft server!
 
 ## Commands
 ### Basic
-**Permission: dubtrack.use**
+**Permission: dubtrackutils.use**
 - `/dubtrack` - View information about dubtrack, a link, and what is currently playing. 
 - `/dubtrack hide [chat]` - Hide announcements or chat (by adding 'chat') 
 ### Mod
-**Permission: dubtrack.mod**
+**Permission: dubtrackutils.mod**
 - `/dubtrack kick <user>` - Kick a user from the dubtrack room
 - `/dubtrack ban <user>` - Ban a user from the dubtrack room <!-- - `/dubtrack unban <user>` - Unban a user from the dubtrack room -->
 - `/dubtrack skip` - Skip the current song
+### Roles
+**Permission: dubtrackutils.roles AND dubtrackutils.roles.set.<role>**
+- `/dubtrack roles set <user> <role>` - Set a user role. Valid roles are `DJ`, `Resident_DJ`, `VIP`, `Mod`, `Manager`, and `Co_Owner`. The Co-Owner role cannot be set unless DubtrackUtils logs in with the room creator's account.
+- `/dubtrack roles clear <user>` - Clear a user's roles.
 ### Admin
-**Permission: dubtrack.admin**
+**Permission: dubtrackutils.admin**
 - `/dubtrack reload` - Reload the configuration file 
 - `/dubtrack reconnect` - Reconnect to dubtrack 
 - `/dubtrack reset` - Reload the configuration file and reconnect to dubtrack 

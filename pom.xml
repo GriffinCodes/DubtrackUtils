@@ -65,6 +65,12 @@
       <id>apache</id>
       <url>http://central.maven.org/maven2/</url>
     </repository>
+    <!-- DiscordSRV -->
+    <repository>
+      <id>Scarsz-Jenkins</id>
+      <url>http://scarsz.tech:8080/plugin/repository/everything/</url>
+    </repository>
+
   </repositories>
   <dependencies>
     <!--Spigot API-->
@@ -91,6 +97,12 @@
       <groupId>com.cnaude</groupId>
       <artifactId>PurpleIRC</artifactId>
       <version>2.1.14-SNAPSHOT</version>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>com.scarsz.discordsrv</groupId>
+      <artifactId>DiscordSRV</artifactId>
+      <version>13.6</version>
       <scope>provided</scope>
     </dependency>
     <!-- unbescape - Unescaping HTML characters -->

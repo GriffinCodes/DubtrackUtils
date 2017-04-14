@@ -184,8 +184,9 @@ public class DubtrackUtils extends JavaPlugin {
 		cmds.put("reload", "admin");
 		cmds.put("reconnect", "admin");
 		cmds.put("reset", "admin");
+		cmds.put("roles", "roles");
 		cmds.put("ban", "mod");
-		cmds.put("unban", "mod");
+//		cmds.put("unban", "mod");
 		cmds.put("kick", "mod");
 		cmds.put("skip", "mod");
 		cmds.put("ban", "mod");
@@ -200,10 +201,6 @@ public class DubtrackUtils extends JavaPlugin {
 
 	protected static DubtrackUtils getInstance() {
 		return instance;
-	}
-
-	protected DubtrackBuilder getBuilder() {
-		return builder;
 	}
 
 	protected DubtrackAPI getAPI() {
