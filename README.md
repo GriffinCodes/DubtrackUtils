@@ -8,12 +8,12 @@ Hook Dubtrack into your minecraft server!
 - Display dubtrack chat in minecraft and vice-versa
 - Hide announcements/chat per person
 - Kick/ban dubtrack users from ingame
+- Role management from ingame
 - Skip the current song from ingame
 - Send announcements and chat to IRC via [PurpleIRC](https://www.spigotmc.org/resources/purpleirc.2836/)
 - [*Fully* customizable](https://github.com/PugaBear/DubtrackUtils/blob/master/src/main/resources/config.yml) - every message and every feature.
 
 ### Planned features
-- Setting roles from ingame
 - Discord hook
 - Grab other misc. information about the dubtrack room
 
