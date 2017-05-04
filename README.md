@@ -15,6 +15,7 @@ Hook Dubtrack into your minecraft server!
 
 ### Planned features
 - Discord hook
+- Dubtrack join/leave messages
 - Grab other misc. information about the dubtrack room
 
 ## Commands
