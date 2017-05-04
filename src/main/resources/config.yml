@@ -91,6 +91,12 @@ lang:
 
   # User not found error
   usernotfound: '%prefix% Could not find dubtrack user %user%'
+  
+  # Queue commannd
+  queue:
+    invalidurl: '%prefix% Sorry, I could not understand that URL!'
+    success: '%prefix% Successfully queued song'
+    usage: '%prefix% &c/dubtrack queue <youtube url>'
 
   # Mod commands
   mod:

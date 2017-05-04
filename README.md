@@ -22,7 +22,10 @@ Hook Dubtrack into your minecraft server!
 ### Basic
 **Permission: dubtrackutils.use**
 - `/dubtrack` - View information about dubtrack, a link, and what is currently playing. 
-- `/dubtrack hide [chat]` - Hide announcements or chat (by adding 'chat') 
+- `/dubtrack hide [chat]` - Hide announcements or chat (by adding 'chat')
+### Queuing
+**Permission: dubtrackutils.queue**
+- `/dubtrack queue <youtube url>` - Queue a song
 ### Mod
 **Permission: dubtrackutils.mod**
 - `/dubtrack kick <user>` - Kick a user from the dubtrack room

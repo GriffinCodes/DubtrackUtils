@@ -141,6 +141,9 @@ public class DubtrackUtils extends JavaPlugin {
 			config.getBoolean("hooks.discord.chat.enabled")) {
 		
 			dubtrack.getEventBus().register(UserChatEvent.class, event -> {
+				if (event.getMessage().getUser().getUsername().equals(config.getString("settings.username"))) {
+					return;
+				}
 				String message = Utils.color("lang.chat.dub-to-game")
 						.replaceAll("%user%", event.getMessage().getUser().getUsername())
 						.replaceAll("%message%", event.getMessage().getContent());
@@ -190,6 +193,7 @@ public class DubtrackUtils extends JavaPlugin {
 		cmds.put("kick", "mod");
 		cmds.put("skip", "mod");
 		cmds.put("ban", "mod");
+		cmds.put("queue", "queue");
 		cmds.put("mute", "use");
 		cmds.put("hide", "use");
 		cmds.put("default", "use");

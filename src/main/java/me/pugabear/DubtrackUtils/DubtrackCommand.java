@@ -3,7 +3,6 @@ package me.pugabear.DubtrackUtils;
 import java.io.IOException;
 import java.util.HashMap;
 
-import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -12,6 +11,7 @@ import org.bukkit.entity.Player;
 import org.unbescape.html.HtmlEscape;
 import org.json.JSONException;
 
+import io.sponges.dubtrack4j.framework.SongInfo.SourceType;
 import io.sponges.dubtrack4j.framework.User;
 import io.sponges.dubtrack4j.util.Role;
 
@@ -191,6 +191,34 @@ public class DubtrackCommand implements CommandExecutor {
 					sender.sendMessage(Utils.color("lang.roles.usage"));
 					return true;
 				}
+			case "queue":
+					if (args.length > 1) {
+						String id = null;
+						String[] array = null;
+						// https://www.youtube.com/watch?v=eVtNcCwMY58
+						// https://youtu.be/eVtNcCwMY58
+						try {
+							if (args[1].contains("youtube.com")) {
+								array = args[1].split("=");
+							} else if (args[1].contains("youtu.be")) {
+								array = args[1].split("youtu.be/");
+							} 
+							id = array[1];
+						} catch (NullPointerException ex) {
+							sender.sendMessage(Utils.color("lang.queue.invalidurl"));
+						}
+						
+						try {
+							dtu.getRoom().queueSong(SourceType.YOUTUBE, id);
+							sender.sendMessage(Utils.color("lang.queue.success"));
+						} catch (Exception ex) {
+							sender.sendMessage(ex.getMessage());
+							ex.printStackTrace();
+						}
+					} else {
+						sender.sendMessage(Utils.color("lang.queue.usage"));
+					}
+				return true;
 			case "use":
 				switch (first) {
 				case "mute":
