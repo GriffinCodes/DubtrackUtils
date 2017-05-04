@@ -96,7 +96,9 @@ lang:
   mod:
     ban: '%prefix% Banned user %user%'
     kick: '%prefix% Kicked user %user%'
-    skip: '%prefix% Skipped current song'
+    skip: 
+      success: '%prefix% Skipped current song'
+      nosong: '%prefix% There is no song currently playing'
     usage: '%prefix% &c/dubtrack <ban <user>|kick <user>|skip>'
 
   # Set role commands
@@ -131,7 +133,7 @@ hooks:
   # IRC (via PurpleIRC)
   # https://www.spigotmc.org/resources/purpleirc.2836/
   #
-  # Discord (Via DiscordSRV)
+  # Discord (via DiscordSRV)
   # https://discordapp.com
   # https://www.spigotmc.org/resources/discordsrv.18494/
   # 

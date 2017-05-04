@@ -3,12 +3,14 @@ package me.pugabear.DubtrackUtils;
 import java.io.IOException;
 import java.util.HashMap;
 
+import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.Player;
 import org.unbescape.html.HtmlEscape;
+import org.json.JSONException;
 
 import io.sponges.dubtrack4j.framework.User;
 import io.sponges.dubtrack4j.util.Role;
@@ -85,8 +87,12 @@ public class DubtrackCommand implements CommandExecutor {
 //				        });
 //						break;
 					case "skip":
-						dtu.getRoom().skipSong();
-						sender.sendMessage(Utils.color("lang.mod.skip"));
+						try {
+							dtu.getRoom().skipSong();
+							sender.sendMessage(Utils.color("lang.mod.skip.success"));
+						} catch (JSONException ex) {
+							sender.sendMessage(Utils.color("lang.mod.skip.nosong"));
+						}
 						return true;
 					default:
 						sender.sendMessage(Utils.color("lang.mod.usage"));
@@ -108,7 +114,7 @@ public class DubtrackCommand implements CommandExecutor {
 						} catch (ArrayIndexOutOfBoundsException ex) {
 							sender.sendMessage(Utils.color("lang.roles.usage"));
 							return true;
-						} catch (IllegalArgumentException | org.json.JSONException ex) {
+						} catch (IllegalArgumentException | JSONException ex) {
 							sender.sendMessage(Utils.color("lang.usernotfound").replaceAll("%user%", args[2]));
 							return true;
 						}
