@@ -83,6 +83,7 @@ public class DubtrackUtils extends JavaPlugin {
 				log.info("Registering SongChangeEvent");
 				
 				dubtrack.getEventBus().register(SongChangeEvent.class, event -> {
+					Bukkit.broadcastMessage("Caught SongChangeEvent");
 					String display = config.getString("lang.display")
 							.replaceAll("&", "§")
 							.replaceAll("%song%", event.getNewSong().getSongInfo().getName())
@@ -96,12 +97,14 @@ public class DubtrackUtils extends JavaPlugin {
 					message = HtmlEscape.unescapeHtml(message);
 					
 					if (config.getBoolean("settings.announcements")) {
+						Bukkit.broadcastMessage("Sending to ingame chat");
 						String[] msgSplit = message.split("%new%");
 						for (String _msg : msgSplit) {
 							TextComponent tc = new TextComponent(TextComponent.fromLegacyText(_msg));
 							tc.setClickEvent(clickEvent);
 							tc.setHoverEvent(hoverEvent);
 							for (Player _p : Bukkit.getOnlinePlayers()) {
+								Bukkit.broadcastMessage(_p.getName() + " has announcements " + (amMap.get(_p) ? "enabled" : "disabled"));
 								if (!amMap.get(_p)) {
 									_p.spigot().sendMessage(tc);
 								}
