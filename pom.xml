@@ -68,7 +68,7 @@
     <!-- DiscordSRV -->
     <repository>
       <id>Scarsz-Jenkins</id>
-      <url>http://scarsz.tech:8080/plugin/repository/everything/</url>
+      <url>http://scarsz.me:8080/plugin/repository/everything/</url>
     </repository> 
   </repositories>
   <dependencies>
