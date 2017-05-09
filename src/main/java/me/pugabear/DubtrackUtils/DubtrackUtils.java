@@ -31,7 +31,6 @@ public class DubtrackUtils extends JavaPlugin {
 	public HashMap<Player, Boolean> amMap = new HashMap<Player, Boolean>();
 	public HashMap<Player, Boolean> chatMap = new HashMap<Player, Boolean>();
 
-	protected DubtrackBuilder builder;
 	protected DubtrackAPI dubtrack;
 	protected Room room;
 	protected String id;
@@ -47,19 +46,19 @@ public class DubtrackUtils extends JavaPlugin {
 		this.getCommand("dubtrack").setExecutor(new DubtrackCommand());
 		getServer().getPluginManager().registerEvents(new EventListener(), this);
 		initCmds();
-		if (!config.getString("settings.username").equalsIgnoreCase("username") || 
+		if (!config.getString("settings.username").equalsIgnoreCase("username") && 
 			!config.getString("settings.password").equalsIgnoreCase("password")) {
 			Utils.getRoomId();
 			init();
 			register();
 		} else {
-			log.severe("Username and/or password not found!");
+			log.severe("Username and password not found!");
 		}
 	}
 
 	protected void init() {
 		try {
-			builder = new DubtrackBuilder(
+			DubtrackBuilder builder = new DubtrackBuilder(
 					config.getString("settings.username"), 
 					config.getString("settings.password"));
 			dubtrack = builder.buildAndLogin();
@@ -81,9 +80,9 @@ public class DubtrackUtils extends JavaPlugin {
 		if (config.getBoolean("settings.announcements") || 
 			config.getBoolean("hooks.irc.announcements.enabled") || 
 			config.getBoolean("hooks.discord.announcements.enabled")) {
-			
+				log.info("Registering SongChangeEvent");
+				
 				dubtrack.getEventBus().register(SongChangeEvent.class, event -> {
-
 					String display = config.getString("lang.display")
 							.replaceAll("&", "§")
 							.replaceAll("%song%", event.getNewSong().getSongInfo().getName())
@@ -122,10 +121,10 @@ public class DubtrackUtils extends JavaPlugin {
 									if (channel != null) {
 										pirc.ircBots.get(bot).asyncIRCMessage(channel, _am);
 									} else { 
-										log.severe("Channel \"" + channel + "\" not found");
+										log.severe("Channel \"" + channel + "\" not found, cannot send SongChangeEvent to IRC");
 									}
 								} else {
-									log.severe("Bot \"" + bot + "\" not found");
+									log.severe("Bot \"" + bot + "\" not found, cannot send SongChangeEvent to IRC");
 								}
 							}
 						}
@@ -139,14 +138,15 @@ public class DubtrackUtils extends JavaPlugin {
 		if (config.getBoolean("settings.chat") || 
 			config.getBoolean("hooks.irc.chat.enabled") || 
 			config.getBoolean("hooks.discord.chat.enabled")) {
-		
-			dubtrack.getEventBus().register(UserChatEvent.class, event -> {
-				if (event.getMessage().getUser().getUsername().equals(config.getString("settings.username"))) {
+			log.info("Registering UserChatEvent");
+			
+			dubtrack.getEventBus().register(UserChatEvent.class, chatevent -> {
+				if (chatevent.getMessage().getUser().getUsername().equals(config.getString("settings.username"))) {
 					return;
 				}
 				String message = Utils.color("lang.chat.dub-to-game")
-						.replaceAll("%user%", event.getMessage().getUser().getUsername())
-						.replaceAll("%message%", event.getMessage().getContent());
+						.replaceAll("%user%", chatevent.getMessage().getUser().getUsername())
+						.replaceAll("%message%", chatevent.getMessage().getContent());
 				
 				if (config.getBoolean("settings.chat.dub-to-game")) {
 					for (Player _p : Bukkit.getOnlinePlayers()) {
@@ -168,10 +168,10 @@ public class DubtrackUtils extends JavaPlugin {
 								if (channel != null) {
 									pirc.ircBots.get(bot).asyncIRCMessage(channel, _msg);
 								} else { 
-									log.severe("Channel \"" + channel + "\" not found");
+									log.severe("Channel \"" + channel + "\" not found, cannot send UserChatEvent to IRC");
 								}
 							} else {
-								log.severe("Bot \"" + bot + "\" not found");
+								log.severe("Bot \"" + bot + "\" not found, cannot send UserChatEvent to IRC");
 							}
 						}
 					}

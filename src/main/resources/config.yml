@@ -73,6 +73,9 @@ lang:
   info: '&f%new%&bDubtrack &3is a music sharing platform. It allows you to listen to songs at the same time as your friends.'
   join: '&f%new%&3Join us on dubtrack at &d%url%'
   currentlyplaying: '&f%new%&3Currently playing: %display%'
+
+  # This will replace the 'currently playing' if there is no song playing
+  queueempty: '&f%new%&3Nothing is currently playing. Be the first to join the queue!'
   
   # Prefix used in commands
   prefix: '&8&l[&eDubtrackUtils&8&l]&3'
@@ -88,6 +91,9 @@ lang:
 
   # Permission error message
   noperm: '&cYou do not have permission to use this command!'
+
+  # Login failed
+  noroom: '&cCould not find the dubtrack room. Check your settings'
 
   # User not found error
   usernotfound: '%prefix% Could not find dubtrack user %user%'

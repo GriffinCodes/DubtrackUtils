@@ -1,7 +1,7 @@
 # DubtrackUtils
 Hook Dubtrack into your minecraft server!
 
-*Credit to [@sponges](https://github.com/sponges) / [@zombachu](https://github.com/zombachu) for the [Dubtrack4J](https://github.com/PugaBear/Dubtrack4J) library*
+*Credit to [@ducc](https://github.com/ducc) / [@zombachu](https://github.com/zombachu) for the [Dubtrack4J](https://github.com/PugaBear/Dubtrack4J) library*
 
 ## Features
 - Song update announcements
@@ -69,6 +69,7 @@ mvn clean package
 ```
 The jar will be inside the `target` folder.
 
+When re-building, you can use `mvn -o clean package` to speed up the compile
 ## Contact
 ### Discord
 [<img src="https://discordapp.com/api/guilds/132680070480396288/widget.png?style=shield">](https://discord.gg/0jwsKTH4ATkkN8iB)

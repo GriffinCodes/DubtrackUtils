@@ -11,6 +11,7 @@ import org.bukkit.entity.Player;
 import org.unbescape.html.HtmlEscape;
 import org.json.JSONException;
 
+import io.sponges.dubtrack4j.framework.Room;
 import io.sponges.dubtrack4j.framework.SongInfo.SourceType;
 import io.sponges.dubtrack4j.framework.User;
 import io.sponges.dubtrack4j.util.Role;
@@ -39,12 +40,29 @@ public class DubtrackCommand implements CommandExecutor {
 			dtu.getLogger().info("level is null");
 			return true;
 		}
+		
+		if (!level.equals("admin")) {
+			try {
+				Room room = dtu.getRoom();
+				if (room == null) {
+					sender.sendMessage(Utils.color("lang.noroom"));
+					return true;
+				}
+			} catch (Exception e) {
+				sender.sendMessage(Utils.color("lang.noroom"));
+				return true;
+			}
+		}
+		
 		try {
 			switch (level) {
 			case "admin":
 				switch (first) {
 				case "reload": 
-					Utils.loadConfig();
+					try {
+						Utils.loadConfig();
+						dtu.reloadConfig();
+					} catch (Exception ex) {}
 					break;
 				case "reconnect":
 					dtu.getAPI().logout();
@@ -53,8 +71,11 @@ public class DubtrackCommand implements CommandExecutor {
 					dtu.register();
 					break;
 				case "reset":
-					try { dtu.getAPI().logout(); } catch (NullPointerException e) {}
-					Utils.loadConfig();
+					try { dtu.getAPI().logout(); } catch (NullPointerException ex) {}
+					try {
+						Utils.loadConfig();
+						dtu.reloadConfig();
+					} catch (Exception ex) {}
 					Utils.getRoomId();
 					dtu.init();
 					dtu.register();
@@ -195,8 +216,6 @@ public class DubtrackCommand implements CommandExecutor {
 					if (args.length > 1) {
 						String id = null;
 						String[] array = null;
-						// https://www.youtube.com/watch?v=eVtNcCwMY58
-						// https://youtu.be/eVtNcCwMY58
 						try {
 							if (args[1].contains("youtube.com")) {
 								array = args[1].split("=");
@@ -245,18 +264,23 @@ public class DubtrackCommand implements CommandExecutor {
 
 					String join = Utils.color("lang.join")
 							.replaceAll("%url%", url);
-
-					String song = HtmlEscape.unescapeHtml(dtu.getRoom().getCurrentSong().getSongInfo().getName());
-					String dj = HtmlEscape.unescapeHtml(dtu.getRoom().getCurrentSong().getUser().getUsername());
 					
-					String display = Utils.color("lang.display")
-							.replaceAll("%song%", song)
-							.replaceAll("%dj%", dj);
+					String cp = null;
+					try {
+						String song = HtmlEscape.unescapeHtml(dtu.getRoom().getCurrentSong().getSongInfo().getName());
+						String dj = HtmlEscape.unescapeHtml(dtu.getRoom().getCurrentSong().getUser().getUsername());
+						
+						String display = Utils.color("lang.display")
+								.replaceAll("%song%", song)
+								.replaceAll("%dj%", dj);
 
-					String cp = Utils.color("lang.currentlyplaying")
-							.replaceAll("%display%", display)
-							.replaceAll("%song%", song)
-							.replaceAll("%dj%", dj);
+						cp = Utils.color("lang.currentlyplaying")
+								.replaceAll("%display%", display)
+								.replaceAll("%song%", song)
+								.replaceAll("%dj%", dj);
+					} catch (NullPointerException ex) {
+						cp = Utils.color("lang.queueempty");
+					}
 
 					if (!info.isEmpty()) {
 						String[] infoSplit = info.split("%new%");
