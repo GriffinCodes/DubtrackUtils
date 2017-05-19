@@ -6,6 +6,7 @@ Hook Dubtrack into your minecraft server!
 ## Features
 - Song update announcements
 - Display dubtrack chat in minecraft and vice-versa
+- Queue a song from ingame
 - Hide announcements/chat per person
 - Kick/ban dubtrack users from ingame
 - Role management from ingame
