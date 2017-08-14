@@ -1,7 +1,7 @@
 # DubtrackUtils
 Hook Dubtrack into your minecraft server!
 
-*Credit to [@ducc](https://github.com/ducc) / [@zombachu](https://github.com/zombachu) for the [Dubtrack4J](https://github.com/PugaBear/Dubtrack4J) library*
+*Credit to [@ducc](https://github.com/ducc) / [@zombachu](https://github.com/zombachu) for the [Dubtrack4J](https://github.com/Pugabyte/Dubtrack4J) library*
 
 ## Features
 - Song update announcements
@@ -12,7 +12,7 @@ Hook Dubtrack into your minecraft server!
 - Role management from ingame
 - Skip the current song from ingame
 - Send announcements and chat to IRC via [PurpleIRC](https://www.spigotmc.org/resources/purpleirc.2836/)
-- [*Fully* customizable](https://github.com/PugaBear/DubtrackUtils/blob/master/src/main/resources/config.yml) - every message and every feature.
+- [*Fully* customizable](https://github.com/Pugabyte/DubtrackUtils/blob/master/src/main/resources/config.yml) - every message and every feature.
 
 ### Planned features
 - Discord hook
@@ -50,21 +50,21 @@ NOTE: The `reconnect` and `reset` commands will pause your server for ~2-5 secon
 ## Installing
 - Drag and drop into plugins folder
 - Stop / start server
-- Edit the [config.yml](https://github.com/PugaBear/DubtrackUtils/blob/master/src/main/resources/config.yml)
+- Edit the [config.yml](https://github.com/Pugabyte/DubtrackUtils/blob/master/src/main/resources/config.yml)
 - `/dubtrack reset`
 
 ## Building
-You will first need to clone the [Dubtrack4J](https://github.com/PugaBear/Dubtrack4J) library and the [PurpleIRC plugin](https://github.com/PugaBear/PurpleIRC) and install them to your local Maven cache.
+You will first need to clone the [Dubtrack4J](https://github.com/Pugabyte/Dubtrack4J) library and the [PurpleIRC plugin](https://github.com/Pugabyte/PurpleIRC) and install them to your local Maven cache.
 ```
-git clone https://github.com/PugaBear/Dubtrack4J.git
+git clone https://github.com/Pugabyte/Dubtrack4J.git
 cd Dubtrack4J
 mvn clean install
 cd ..
-git clone https://github.com/PugaBear/PurpleIRC.git
+git clone https://github.com/Pugabyte/PurpleIRC.git
 cd PurpleIRC
 mvn clean install
 cd ..
-git clone https://github.com/PugaBear/DubtrackUtils.git
+git clone https://github.com/Pugabyte/DubtrackUtils.git
 cd DubtrackUtils
 mvn clean package
 ```
